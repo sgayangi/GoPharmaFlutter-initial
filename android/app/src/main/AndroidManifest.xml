@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cs3202.go_pharma">
    <application
-        android:label="go_pharma"
+        android:label="GoPharma"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
