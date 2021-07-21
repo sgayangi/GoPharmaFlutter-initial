@@ -4,6 +4,8 @@ import 'package:go_pharma/theme.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart';
 
 void main() {
   runApp(GoPharmaApp());
@@ -33,6 +35,13 @@ class GoPharmaApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: buildThemeData(context),
       home: TempHomePage(),
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
+      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }
@@ -53,7 +62,9 @@ class TempHomePage extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                Text("GoPharma"),
+                Text(
+                  S.of(context).app_name,
+                ),
               ],
             ),
             centerTitle: true,

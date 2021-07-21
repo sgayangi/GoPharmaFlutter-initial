@@ -23,16 +23,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  badges: ^2.0.1
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
@@ -40,11 +30,25 @@ dev_dependencies:
   font_awesome_flutter: ^9.1.0
   flutter_bloc: ^6.1.2
 
-flutter:
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  badges: ^2.0.1
+  flutter_native_splash: ^1.2.0
 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
   assets:
     - images/
   uses-material-design: true
+
+flutter_intl:
+  main_locale: en_US
+  enabled: true
+
 
   #
   # For details regarding fonts from package dependencies,
