@@ -30,7 +30,7 @@ class SignInStart extends StatelessWidget {
             children: [
               Spacer(),
               Text(
-                "Sign In to your Account",
+                "Sign in to your account",
                 style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
