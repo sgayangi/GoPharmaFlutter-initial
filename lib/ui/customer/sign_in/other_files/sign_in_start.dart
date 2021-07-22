@@ -3,6 +3,8 @@ import 'package:go_pharma/generated/l10n.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/common/widgets/rounded_button.dart';
 import 'package:go_pharma/ui/common/widgets/text_field.dart';
+import 'dart:core';
+import 'package:email_validator/email_validator.dart';
 
 class SignInStart extends StatelessWidget {
   static const String id = "sign_in";
@@ -127,7 +129,11 @@ class SignInStart extends StatelessWidget {
                 size: MediaQuery.of(context).size,
                 fillColor: GoPharmaColors.SecondaryColor,
                 textColor: GoPharmaColors.WhiteColor,
-                onTapped: () {},
+                onTapped: () {
+                  final bool isValid =
+                      EmailValidator.validate(emailController.text);
+                  print(isValid);
+                },
               ),
               Spacer(),
             ],
