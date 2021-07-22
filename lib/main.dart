@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:go_pharma/theme.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
-import 'package:go_pharma/ui/temp_start_page.dart';
+import 'package:go_pharma/ui/home_page.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -36,13 +36,13 @@ class GoPharmaApp extends StatelessWidget {
           color: GoPharmaColors.SecondaryColor,
         ),
       ),
-      initialRoute: TempHomePage.id,
+      initialRoute: HomePage.id,
       routes: {
         SignInStart.id: (context) => SignInStart(),
-        TempHomePage.id: (context) => TempHomePage(),
+        HomePage.id: (context) => HomePage(),
       },
       theme: buildThemeData(context),
-      home: TempHomePage(),
+      home: HomePage(),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
