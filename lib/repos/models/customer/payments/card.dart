@@ -1,5 +1,4 @@
-import 'package:go_pharma/models/customer/payments/card_types/card_type.dart';
-
+import 'card_types/card_type.dart';
 import 'card_types/mastercard.dart';
 import 'card_types/visa.dart';
 

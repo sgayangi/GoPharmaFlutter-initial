@@ -12,6 +12,7 @@ class GoPharmaColors {
   static const BlackColor = Colors.black;
   static const WhiteColor = Colors.white;
   static const LighterSecondaryColor = Color.fromRGBO(177, 61, 91, 0.1);
+  static const LighterSecondaryColor2 = Color.fromRGBO(177, 61, 91, 0.7);
 
   static const MaterialColor PrimaryMaterialColorScheme =
       MaterialColor(0xFFB13BC8, {

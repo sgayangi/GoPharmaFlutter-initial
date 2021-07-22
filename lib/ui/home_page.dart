@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_pharma/ui/common/colors.dart';
+import 'package:go_pharma/ui/customer/home/customer_home_page.dart';
 import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
 import 'common/widgets/rounded_button.dart';
 
@@ -49,6 +50,16 @@ class HomePage extends StatelessWidget {
                 onTapped: () => Navigator.pushNamed(
                   context,
                   SignInStart.id,
+                ),
+              ),
+              RoundedButtonFilled(
+                title: "CUSTOMER HOME PAGE",
+                size: size,
+                fillColor: GoPharmaColors.GreyColor,
+                textColor: GoPharmaColors.BlackColor,
+                onTapped: () => Navigator.pushNamed(
+                  context,
+                  CustomerHomePage.id,
                 ),
               ),
             ],
