@@ -6,6 +6,8 @@ class GoPharmaColors {
   static const SecondaryColor = Color.fromRGBO(177, 61, 91, 1);
   static const PrimaryLightColor = Color.fromRGBO(246, 230, 240, 1);
   static const TempLightColor = Color.fromRGBO(103, 78, 167, 1);
+  static const HintTextColor = Color.fromRGBO(177, 61, 91, 0.2);
+  static const TextBoxColor = Color.fromRGBO(177, 61, 91, 0.7);
 
   static const MaterialColor PrimaryMaterialColorScheme =
       MaterialColor(0xFFB13BC8, {
