@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:go_pharma/generated/l10n.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/common/widgets/rounded_button.dart';
 import 'package:go_pharma/ui/common/widgets/text_field.dart';
 
 class SignInStart extends StatelessWidget {
   static const String id = "sign_in";
-  String title = "Sign In";
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    String title = S.of(context).sign_in_heading;
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -30,7 +32,7 @@ class SignInStart extends StatelessWidget {
             children: [
               Spacer(),
               Text(
-                "Sign in to your account",
+                S.of(context).sign_in_to_your_account,
                 style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
@@ -51,7 +53,7 @@ class SignInStart extends StatelessWidget {
                       Icons.person,
                       color: GoPharmaColors.SecondaryColor,
                     ),
-                    hintText: 'Your Email',
+                    hintText: S.of(context).your_email,
                     hintStyle: TextStyle(
                       color: GoPharmaColors.HintTextColor,
                       fontSize: 18.0,
@@ -76,7 +78,7 @@ class SignInStart extends StatelessWidget {
                       Icons.lock,
                       color: GoPharmaColors.SecondaryColor,
                     ),
-                    hintText: 'Password',
+                    hintText: S.of(context).password,
                     hintStyle: TextStyle(
                       color: GoPharmaColors.HintTextColor,
                       fontSize: 18.0,
@@ -96,15 +98,32 @@ class SignInStart extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Text(
-                "Don't have an account? Sign up.",
-                style: TextStyle(
-                  color: GoPharmaColors.SecondaryColor,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    S.of(context).no_account_text,
+                    style: TextStyle(
+                      color: GoPharmaColors.SecondaryColor,
+                    ),
+                  ),
+                  GestureDetector(
+                    child: Text(
+                      S.of(context).sign_up_text,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: GoPharmaColors.SecondaryColor,
+                      ),
+                    ),
+                    onTap: () {
+                      //  TODO: navigate to sign up page
+                    },
+                  ),
+                ],
               ),
               Spacer(),
               RoundedButtonFilled(
-                title: "SIGN UP",
+                title: S.of(context).sign_up_button,
                 size: MediaQuery.of(context).size,
                 fillColor: GoPharmaColors.SecondaryColor,
                 textColor: GoPharmaColors.WhiteColor,
