@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    tags: 
+      - '*'
+
+jobs:
+  test:
+    name: Flutter Tests
+    runs-on: macOS-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1.4.0
+        with:
+          flutter-version: '1.24.0-10.2.pre'
+          channel: dev
+      - run: flutter doctor
+      - run: flutter pub get
+    # - run: flutter test
+      - run: flutter build apk --release -v
+    
+    # now release the just created build
+      - name: Create a Release APK
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*.apk"
+          token: "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"
+          commit: master
+          tag: "latest"
