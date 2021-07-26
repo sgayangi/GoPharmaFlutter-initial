@@ -7,5 +7,4 @@ Map<String, Widget Function(BuildContext context)> routes = {
   SignInStart.id: (context) => SignInStart(),
   HomePage.id: (context) => HomePage(),
   CustomerHomePage.id: (context) => CustomerHomePage(),
-
 };
