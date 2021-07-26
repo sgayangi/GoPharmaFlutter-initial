@@ -28,20 +28,22 @@ class GoPharmaColors {
     900: Color.fromRGBO(177, 59, 200, 1),
   });
 
-  static const MaterialColor SecondaryMaterialColorScheme =
-      MaterialColor(0xFFB13D5B, {
-    //    b13d5b
-    50: Color.fromRGBO(177, 61, 91, .1),
-    100: Color.fromRGBO(177, 61, 91, .2),
-    200: Color.fromRGBO(177, 61, 91, .3),
-    300: Color.fromRGBO(177, 61, 91, .4),
-    400: Color.fromRGBO(177, 61, 91, .5),
-    500: Color.fromRGBO(177, 61, 91, .6),
-    600: Color.fromRGBO(177, 61, 91, .7),
-    700: Color.fromRGBO(177, 61, 91, .8),
-    800: Color.fromRGBO(177, 61, 91, .9),
-    900: Color.fromRGBO(177, 61, 91, 1),
-  });
+  static const MaterialColor SecondaryMaterialColorScheme = MaterialColor(
+    0xFFB13D5B,
+    {
+      //    b13d5b
+      50: Color.fromRGBO(177, 61, 91, .1),
+      100: Color.fromRGBO(177, 61, 91, .2),
+      200: Color.fromRGBO(177, 61, 91, .3),
+      300: Color.fromRGBO(177, 61, 91, .4),
+      400: Color.fromRGBO(177, 61, 91, .5),
+      500: Color.fromRGBO(177, 61, 91, .6),
+      600: Color.fromRGBO(177, 61, 91, .7),
+      700: Color.fromRGBO(177, 61, 91, .8),
+      800: Color.fromRGBO(177, 61, 91, .9),
+      900: Color.fromRGBO(177, 61, 91, 1),
+    },
+  );
 
   static const MaterialColor TempMaterialColorScheme =
       MaterialColor(0xFF674EA7, {
