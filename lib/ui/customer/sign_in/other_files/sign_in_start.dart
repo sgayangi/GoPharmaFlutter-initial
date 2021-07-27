@@ -5,6 +5,7 @@ import 'package:go_pharma/ui/common/widgets/rounded_button.dart';
 import 'package:go_pharma/ui/common/widgets/text_field.dart';
 import 'dart:core';
 import 'package:email_validator/email_validator.dart';
+import 'package:go_pharma/ui/customer/products/product_home_page.dart';
 import 'package:go_pharma/ui/sign_up/sign_up.dart';
 
 class SignInStart extends StatelessWidget {
@@ -152,9 +153,12 @@ class SignInStart extends StatelessWidget {
                   fillColor: GoPharmaColors.SecondaryColor,
                   textColor: GoPharmaColors.WhiteColor,
                   onTapped: () {
-                    if (_form.currentState!.validate()) {
-                      print("Valid");
-                    }
+                    // if (_form.currentState!.validate()) {
+                    Navigator.pushNamed(
+                      context,
+                      ProductHomePage.id,
+                    );
+                    // }
                   },
                 ),
                 Spacer(),
