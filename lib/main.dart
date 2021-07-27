@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_pharma/ui/common/colors.dart';
-import 'package:go_pharma/ui/home_page.dart';
+import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
+import 'package:go_pharma/ui/main_page.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'config/routes.dart';
 import 'config/theme.dart';
 import 'generated/l10n.dart';
 
-void main() {
+main() async {
   runApp(GoPharmaApp());
 }
 
@@ -36,7 +38,8 @@ class GoPharmaApp extends StatelessWidget {
           color: GoPharmaColors.SecondaryColor,
         ),
       ),
-      initialRoute: HomePage.id,
+      initialRoute: MainPage.id,
+      // email.compareTo("Not logged in") == 0 ? SignInStart.id : HomePage.id,
       routes: routes,
       theme: buildThemeData(context),
       localizationsDelegates: [

@@ -6,7 +6,7 @@ import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
 import 'package:go_pharma/ui/sign_up/sign_up.dart';
 import 'common/widgets/rounded_button.dart';
 
-class HomePage extends StatelessWidget {
+class MainPage extends StatelessWidget {
   static const id = "home_page";
   final String title = "Home Page";
 
