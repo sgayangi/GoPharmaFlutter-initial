@@ -5,6 +5,7 @@ import 'package:go_pharma/ui/common/widgets/rounded_button.dart';
 import 'package:go_pharma/ui/common/widgets/text_field.dart';
 import 'dart:core';
 import 'package:email_validator/email_validator.dart';
+import 'package:go_pharma/ui/sign_up/sign_up.dart';
 
 class SignInStart extends StatelessWidget {
   static const String id = "sign_in";
@@ -118,7 +119,10 @@ class SignInStart extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      //  TODO: navigate to sign up page
+                      Navigator.pushNamed(
+                        context,
+                        SignUpStart.id,
+                      );
                     },
                   ),
                 ],
