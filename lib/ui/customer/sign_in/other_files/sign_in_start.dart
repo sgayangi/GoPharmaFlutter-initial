@@ -152,7 +152,9 @@ class SignInStart extends StatelessWidget {
                   fillColor: GoPharmaColors.SecondaryColor,
                   textColor: GoPharmaColors.WhiteColor,
                   onTapped: () {
-                    _form.currentState!.validate();
+                    if (_form.currentState!.validate()) {
+                      print("Valid");
+                    }
                   },
                 ),
                 Spacer(),
