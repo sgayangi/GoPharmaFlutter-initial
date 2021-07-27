@@ -22,6 +22,7 @@ class GoPharmaApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       builder: (context, widget) => ResponsiveWrapper.builder(
         BouncingScrollWrapper.builder(context, widget!),
         maxWidth: 1200,
