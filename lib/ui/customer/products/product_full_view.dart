@@ -50,6 +50,7 @@ class ProductFullView extends StatelessWidget {
                     color: Colors.black87.withOpacity(0.5),
                   ),
                 ),
+                //  TODO: add an option to edit the amount bought
               ],
             ),
           ),
