@@ -6,10 +6,13 @@ class Product {
   final double price;
   final boolPrescriptionRequired;
   final String imageURL;
+  final String description;
 
   Product({
     required this.id,
     required this.name,
+    this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+        "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     required this.supplier,
     required this.inStock,
     required this.price,

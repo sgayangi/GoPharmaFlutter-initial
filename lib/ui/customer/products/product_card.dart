@@ -105,9 +105,15 @@ class ProductCard extends StatelessWidget {
 }
 
 class ProductCardImage extends StatelessWidget {
+  final double height;
+  final double width;
+  final double padding;
   const ProductCardImage({
     Key? key,
     required this.imageURL,
+    this.height = 125.0,
+    this.width = 125.0,
+    this.padding = 10,
   }) : super(key: key);
 
   final String imageURL;
@@ -115,10 +121,12 @@ class ProductCardImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(
+        this.padding,
+      ),
       child: Container(
-        height: 125.0,
-        width: 125.0,
+        height: this.height,
+        width: this.width,
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(15),
