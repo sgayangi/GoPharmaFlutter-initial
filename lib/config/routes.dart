@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_pharma/ui/customer/home/customer_home_page.dart';
+import 'package:go_pharma/ui/customer/products/product_full_view.dart';
 import 'package:go_pharma/ui/customer/products/product_home_page.dart';
 import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
 import 'package:go_pharma/ui/main_page.dart';

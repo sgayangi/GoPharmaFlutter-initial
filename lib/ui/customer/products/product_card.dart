@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_pharma/repos/models/customer/products/product.dart';
 import 'package:go_pharma/ui/common/colors.dart';
+import 'package:go_pharma/ui/customer/products/product_full_view.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -26,7 +27,14 @@ class ProductCard extends StatelessWidget {
         ),
         width: MediaQuery.of(context).size.width - 20,
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductFullView(product: product),
+              ),
+            );
+          },
           child: Container(
             height: 150,
             child: Stack(
