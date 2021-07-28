@@ -83,8 +83,6 @@ class SignInStart extends StatelessWidget {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return ("Please type in your password.");
-                      } else if (passwordController.text.length < 6) {
-                        return ("Your password must have more than 5 characters.");
                       }
                     },
                     style: TextStyle(

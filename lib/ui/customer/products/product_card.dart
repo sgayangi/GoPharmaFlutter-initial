@@ -25,76 +25,86 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
-        width: MediaQuery.of(context).size.width - 20,
         child: GestureDetector(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ProductFullView(product: product),
+                builder: (context) => ProductFullView(
+                  product: product,
+                ),
               ),
             );
           },
           child: Container(
-            height: 150,
-            child: Stack(
-              fit: StackFit.expand,
+            child: Column(
               children: [
-                Row(
-                  children: [
-                    ProductCardImage(
-                      imageURL: product.imageURL,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            product.name,
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.w500,
-                              color: GoPharmaColors.BlackColor,
-                            ),
+                ProductCardImage(
+                  imageURL: product.imageURL,
+                ),
+                Text(
+                  product.name,
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w500,
+                    color: GoPharmaColors.BlackColor,
+                  ),
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                product.inStock
+                    ? SizedBox(
+                        height: 5.0,
+                      )
+                    : RichText(
+                        text: TextSpan(
+                          text: "This item is currently out of stock.",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: GoPharmaColors.SecondaryColor,
                           ),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                          product.inStock
-                              ? SizedBox(
-                                  height: 5.0,
-                                )
-                              : RichText(
-                                  text: TextSpan(
-                                    text:
-                                        "This item is currently out of stock.",
-                                    style: TextStyle(
-                                      fontSize: 16.0,
-                                      color: GoPharmaColors.SecondaryColor,
-                                    ),
-                                  ),
-                                ),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                          Text(
-                            "Rs.${product.price.toStringAsFixed(2)}",
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w600,
-                              color: GoPharmaColors.BlackColor,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                        ],
+                        ),
+                      ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  "Rs.${product.price.toStringAsFixed(2)}",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w600,
+                    color: GoPharmaColors.BlackColor,
+                  ),
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 15,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      side: BorderSide(
+                        width: 1,
+                        color: GoPharmaColors.SecondaryColor,
                       ),
                     ),
-                  ],
-                ),
+                    onPressed: () {},
+                    child: Text(
+                      'Add to Cart',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

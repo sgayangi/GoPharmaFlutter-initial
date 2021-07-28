@@ -7,6 +7,7 @@ import 'dart:core';
 import 'package:email_validator/email_validator.dart';
 import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
 
+//TODO: password needs to be more than 7 characters
 // ignore: must_be_immutable
 class SignUpStart extends StatelessWidget {
   static const String id = "sign_up";
