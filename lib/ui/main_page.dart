@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_pharma/bloc/internet_connectivity/internet_bloc.dart';
+import 'package:go_pharma/bloc/internet_connectivity/internet_state.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/customer/home/customer_home_page.dart';
 import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
@@ -12,13 +15,18 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<InternetBloc>(context);
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Row(
             children: [
-              Text(title),
+              BlocBuilder<InternetBloc, InternetState>(
+                builder: (context, state) {
+                  return Text(state.connection.toString());
+                },
+              ),
             ],
           ),
         ),
