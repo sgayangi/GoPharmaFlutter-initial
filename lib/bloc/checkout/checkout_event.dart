@@ -16,4 +16,8 @@ class UpdateProductListEvent extends CheckoutEvent {
   UpdateProductListEvent(this.product);
 }
 
+class UpdateProductAmountEvent extends CheckoutEvent {
+  UpdateProductAmountEvent();
+}
+
 class UploadPrescriptionEvent extends CheckoutEvent {}
