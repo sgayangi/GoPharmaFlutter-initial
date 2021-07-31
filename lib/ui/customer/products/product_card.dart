@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +21,7 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(10),
       child: Container(
+        height: 350,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -60,27 +63,73 @@ class ProductCard extends StatelessWidget {
                   height: 5.0,
                 ),
                 product.inStock
-                    ? SizedBox(
-                        height: 5.0,
-                      )
-                    : RichText(
-                        text: TextSpan(
-                          text: "This item is currently out of stock.",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: GoPharmaColors.SecondaryColor,
+                    ? Container()
+                    : Container(
+                        height: 40,
+                        child: Center(
+                          child: RichText(
+                            text: TextSpan(
+                              text: "This item is currently out of stock.",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: GoPharmaColors.SecondaryColor,
+                              ),
+                            ),
                           ),
                         ),
                       ),
                 SizedBox(
                   height: 5.0,
                 ),
-                Text(
-                  "Rs.${product.price.toStringAsFixed(2)}",
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w600,
-                    color: GoPharmaColors.BlackColor,
+                product.inStock
+                    ? BlocBuilder<CheckoutBloc, CheckoutState>(
+                        builder: (context, state) {
+                          if (product.amountOrdered > 0) {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ProductActionIcon(
+                                  icon: Icons.remove,
+                                  onPressed: () {
+                                    product.decrementAmount();
+                                    bloc.add(UpdateProductAmountEvent());
+                                  },
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10.0,
+                                  ),
+                                  child: Text(
+                                    "${product.amountOrdered} ${product.unitOfMeasure}",
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                ),
+                                ProductActionIcon(
+                                  icon: Icons.add,
+                                  onPressed: () {
+                                    product.incrementAmount();
+                                    bloc.add(UpdateProductAmountEvent());
+                                  },
+                                ),
+                              ],
+                            );
+                          } else {
+                            return Container();
+                          }
+                        },
+                      )
+                    : Container(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Text(
+                    "Rs.${product.price.toStringAsFixed(2)}",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w600,
+                      color: GoPharmaColors.BlackColor,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -134,6 +183,36 @@ class ProductCard extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProductActionIcon extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onPressed;
+
+  const ProductActionIcon({
+    Key? key,
+    required this.icon,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 40,
+      width: 40,
+      child: FittedBox(
+        child: FloatingActionButton(
+          heroTag: Random().nextInt(100000).toString(),
+          child: Icon(
+            this.icon,
+            color: Colors.black87,
+          ),
+          backgroundColor: Colors.white,
+          onPressed: onPressed,
         ),
       ),
     );

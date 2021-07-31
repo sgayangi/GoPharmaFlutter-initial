@@ -23,13 +23,28 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
         double tempTotal = state.productListTotal;
         if (productList.contains(product)) {
           productList.remove(product);
-          tempTotal -= product.price;
+          tempTotal -= product.price * product.amountOrdered;
+          product.amountOrdered = 0;
         } else {
+          product.incrementAmount();
           productList.add(product);
           tempTotal += product.price;
         }
         yield state.clone(
-            productListTotal: tempTotal, productList: productList);
+          productListTotal: tempTotal,
+          productList: productList,
+        );
+        break;
+      case UpdateProductAmountEvent:
+        double tempTotal = 0;
+        for (Product p in state.productList) {
+          tempTotal += p.amountOrdered * p.price;
+        }
+        yield state.clone(
+          error: '',
+          productList: state.productList,
+          productListTotal: tempTotal,
+        );
         break;
     }
   }
