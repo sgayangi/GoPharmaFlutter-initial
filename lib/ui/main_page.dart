@@ -60,7 +60,7 @@ class MainPage extends StatelessWidget {
                 RoundedButtonFilled(
                   title: "SIGN UP",
                   size: size,
-                  fillColor: GoPharmaColors.GreyColor,
+                  fillColor: GoPharmaColors.GreyColor.withOpacity(0.5),
                   textColor: GoPharmaColors.BlackColor,
                   onTapped: () => Navigator.pushNamed(
                     context,
@@ -70,7 +70,7 @@ class MainPage extends StatelessWidget {
                 RoundedButtonFilled(
                   title: "CUSTOMER HOME PAGE",
                   size: size,
-                  fillColor: GoPharmaColors.GreyColor,
+                  fillColor: GoPharmaColors.GreyColor.withOpacity(0.5),
                   textColor: GoPharmaColors.BlackColor,
                   onTapped: () => Navigator.pushNamed(
                     context,

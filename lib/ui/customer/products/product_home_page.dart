@@ -5,8 +5,9 @@ import 'package:go_pharma/bloc/checkout/checkout_state.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/common/widgets/back_button.dart';
 import 'package:go_pharma/ui/customer/products/dummy_values/products/products.dart';
-import 'package:go_pharma/ui/customer/products/product_card.dart';
+import 'package:go_pharma/ui/customer/products/square_product_card.dart';
 import 'components/shopping_cart.dart';
+import 'horizontal_product_card.dart';
 
 class ProductHomePage extends StatelessWidget {
   static final String id = "product_home_page";
@@ -38,7 +39,7 @@ class ProductHomePage extends StatelessWidget {
           child: ListView.builder(
             physics: ClampingScrollPhysics(),
             itemCount: products.length,
-            itemBuilder: (context, index) => ProductCard(
+            itemBuilder: (context, index) => HorizontalProductCard(
               product: products[index],
             ),
           ),
