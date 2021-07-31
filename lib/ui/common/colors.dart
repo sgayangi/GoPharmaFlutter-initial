@@ -2,17 +2,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class GoPharmaColors {
-  static const PrimaryColor = Color.fromRGBO(177, 58, 200, 1);
-  static const SecondaryColor = Color.fromRGBO(177, 61, 91, 1);
+  static const PrimaryColor = Color.fromRGBO(177, 61, 91, 1);
   static const PrimaryLightColor = Color.fromRGBO(246, 230, 240, 1);
-  static const TempLightColor = Color.fromRGBO(103, 78, 167, 0.3);
-  static const HintTextColor = Color.fromRGBO(177, 61, 91, 0.4);
-  static const TextBoxColor = Color.fromRGBO(177, 61, 91, 0.7);
-  static const GreyColor = Color.fromRGBO(177, 199, 210, 0.5);
+  static const GreyColor = Color.fromRGBO(177, 199, 210, 1);
+
+  static Color lighterSecondaryColor = PrimaryColor.withOpacity(0.1);
+  static Color hintTextColor = PrimaryColor.withOpacity(0.4);
+  static Color textBoxColor = PrimaryColor.withOpacity(0.7);
+
   static const BlackColor = Colors.black;
   static const WhiteColor = Colors.white;
-  static const LighterSecondaryColor = Color.fromRGBO(177, 61, 91, 0.1);
-  static const LighterSecondaryColor2 = Color.fromRGBO(177, 61, 91, 0.7);
 
   static const MaterialColor PrimaryMaterialColorScheme = MaterialColor(
     0xFFB13BC8,

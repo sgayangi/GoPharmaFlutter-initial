@@ -7,7 +7,7 @@ class ShoppingCart extends StatelessWidget {
   final Color color;
   final int itemCount;
   const ShoppingCart({
-    this.color = GoPharmaColors.SecondaryColor,
+    this.color = GoPharmaColors.PrimaryColor,
     this.itemCount = 0,
   });
 
@@ -20,12 +20,12 @@ class ShoppingCart extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: 20.0,
+          vertical: 10.0,
           horizontal: 30.0,
         ),
         child: itemCount > 0
             ? Badge(
-                badgeColor: Colors.redAccent,
+                badgeColor: GoPharmaColors.GreyColor,
                 toAnimate: true,
                 badgeContent: Text("$itemCount"),
                 child: Icon(
