@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_pharma/bloc/checkout/checkout_bloc.dart';
+import 'package:go_pharma/bloc/checkout/checkout_state.dart';
 import 'package:go_pharma/ui/common/widgets/back_button.dart';
 import 'package:go_pharma/ui/customer/products/components/shopping_cart.dart';
 
@@ -15,8 +18,12 @@ class ShoppingCartAppBar extends StatelessWidget
       elevation: 0,
       leading: CustomBackButton(),
       actions: [
-        ShoppingCart(
-          itemCount: 5,
+        BlocBuilder<CheckoutBloc, CheckoutState>(
+          builder: (context, state) {
+            return ShoppingCart(
+              itemCount: state.productList.length,
+            );
+          },
         ),
       ],
     );

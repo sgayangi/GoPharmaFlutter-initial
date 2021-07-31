@@ -18,60 +18,67 @@ class MainPage extends StatelessWidget {
     var bloc = BlocProvider.of<InternetBloc>(context);
     Size size = MediaQuery.of(context).size;
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              BlocBuilder<InternetBloc, InternetState>(
-                builder: (context, state) {
-                  return Text(state.connection.toString());
-                },
+      child: BlocListener<InternetBloc, InternetState>(
+        listener: (context, state) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                state.connection.toString(),
               ),
-            ],
+            ),
+          );
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: Row(
+              children: [
+                Text(title),
+              ],
+            ),
           ),
-        ),
-        body: Container(
-          width: size.width,
-          height: size.height,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Welcome to GoPharma",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+          body: Container(
+            width: size.width,
+            height: size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Welcome to GoPharma",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              RoundedButtonFilled(
-                title: "LOGIN",
-                size: size,
-                onTapped: () => Navigator.pushNamed(
-                  context,
-                  SignInStart.id,
+                RoundedButtonFilled(
+                  title: "LOGIN",
+                  size: size,
+                  onTapped: () => Navigator.pushNamed(
+                    context,
+                    SignInStart.id,
+                  ),
                 ),
-              ),
-              RoundedButtonFilled(
-                title: "SIGN UP",
-                size: size,
-                fillColor: GoPharmaColors.GreyColor,
-                textColor: GoPharmaColors.BlackColor,
-                onTapped: () => Navigator.pushNamed(
-                  context,
-                  SignUpStart.id,
+                RoundedButtonFilled(
+                  title: "SIGN UP",
+                  size: size,
+                  fillColor: GoPharmaColors.GreyColor,
+                  textColor: GoPharmaColors.BlackColor,
+                  onTapped: () => Navigator.pushNamed(
+                    context,
+                    SignUpStart.id,
+                  ),
                 ),
-              ),
-              RoundedButtonFilled(
-                title: "CUSTOMER HOME PAGE",
-                size: size,
-                fillColor: GoPharmaColors.GreyColor,
-                textColor: GoPharmaColors.BlackColor,
-                onTapped: () => Navigator.pushNamed(
-                  context,
-                  CustomerHomePage.id,
+                RoundedButtonFilled(
+                  title: "CUSTOMER HOME PAGE",
+                  size: size,
+                  fillColor: GoPharmaColors.GreyColor,
+                  textColor: GoPharmaColors.BlackColor,
+                  onTapped: () => Navigator.pushNamed(
+                    context,
+                    CustomerHomePage.id,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -1,15 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_pharma/bloc/checkout/checkout_bloc.dart';
+import 'package:go_pharma/bloc/checkout/checkout_event.dart';
+import 'package:go_pharma/bloc/checkout/checkout_state.dart';
 import 'package:go_pharma/repos/models/customer/products/product.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/customer/products/product_full_view.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+
   const ProductCard({required this.product});
 
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<CheckoutBloc>(context);
     return Padding(
       padding: EdgeInsets.all(10),
       child: Container(
@@ -80,30 +86,50 @@ class ProductCard extends StatelessWidget {
                 SizedBox(
                   height: 5.0,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 15,
+                BlocBuilder<CheckoutBloc, CheckoutState>(
+                  builder: (context, state) {
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 15,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          side: BorderSide(
+                            width: 1,
+                            color: GoPharmaColors.SecondaryColor,
+                          ),
+                        ),
+                        onPressed: product.inStock
+                            ? () {
+                                bloc.add(
+                                  UpdateProductListEvent(
+                                    product,
+                                  ),
+                                );
+                              }
+                            : null,
+                        child: (state.productList.contains(product))
+                            ? Text(
+                                'Remove from cart',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              )
+                            : Text(
+                                'Add to Cart',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      side: BorderSide(
-                        width: 1,
-                        color: GoPharmaColors.SecondaryColor,
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      'Add to Cart',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                      ),
-                    ),
-                  ),
+                    );
+                  },
                 )
               ],
             ),
@@ -118,6 +144,7 @@ class ProductCardImage extends StatelessWidget {
   final double height;
   final double width;
   final double padding;
+
   const ProductCardImage({
     Key? key,
     required this.imageURL,
