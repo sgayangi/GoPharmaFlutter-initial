@@ -27,7 +27,7 @@ class ProductCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: GoPharmaColors.SecondaryColor.withOpacity(0.1),
+              color: GoPharmaColors.PrimaryColor.withOpacity(0.1),
               spreadRadius: 5,
               blurRadius: 7,
               offset: Offset(0, 3), // changes position of shadow
@@ -72,7 +72,7 @@ class ProductCard extends StatelessWidget {
                               text: "This item is currently out of stock.",
                               style: TextStyle(
                                 fontSize: 16.0,
-                                color: GoPharmaColors.SecondaryColor,
+                                color: GoPharmaColors.PrimaryColor,
                               ),
                             ),
                           ),
@@ -150,7 +150,7 @@ class ProductCard extends StatelessWidget {
                           ),
                           side: BorderSide(
                             width: 1,
-                            color: GoPharmaColors.SecondaryColor,
+                            color: GoPharmaColors.PrimaryColor,
                           ),
                         ),
                         onPressed: product.inStock
@@ -211,7 +211,7 @@ class ProductActionIcon extends StatelessWidget {
             this.icon,
             color: Colors.black87,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: GoPharmaColors.GreyColor,
           onPressed: onPressed,
         ),
       ),

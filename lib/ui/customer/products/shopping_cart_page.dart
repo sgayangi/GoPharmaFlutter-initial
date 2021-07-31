@@ -60,7 +60,7 @@ class ShoppingCartPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: state.productListTotal > 0 ? () {} : null,
                       style: ElevatedButton.styleFrom(
-                        primary: GoPharmaColors.SecondaryColor,
+                        primary: GoPharmaColors.PrimaryColor,
                         padding: EdgeInsets.symmetric(
                           horizontal: 50,
                           vertical: 20,

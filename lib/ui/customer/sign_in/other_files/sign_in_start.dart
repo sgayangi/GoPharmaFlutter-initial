@@ -43,7 +43,7 @@ class SignInStart extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
-                      color: GoPharmaColors.SecondaryColor),
+                      color: GoPharmaColors.PrimaryColor),
                 ),
                 Spacer(),
                 TextFieldContainer(
@@ -62,15 +62,15 @@ class SignInStart extends StatelessWidget {
                       color: Colors.black,
                     ),
                     onChanged: (String value) {},
-                    cursorColor: GoPharmaColors.SecondaryColor,
+                    cursorColor: GoPharmaColors.PrimaryColor,
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.person,
-                        color: GoPharmaColors.SecondaryColor,
+                        color: GoPharmaColors.PrimaryColor,
                       ),
                       hintText: S.of(context).your_email,
                       hintStyle: TextStyle(
-                        color: GoPharmaColors.HintTextColor,
+                        color: GoPharmaColors.hintTextColor,
                         fontSize: 18.0,
                       ),
                       border: InputBorder.none,
@@ -92,22 +92,22 @@ class SignInStart extends StatelessWidget {
                     //TODO: add bloc here
                     obscureText: true,
                     onChanged: (String value) {},
-                    cursorColor: GoPharmaColors.SecondaryColor,
+                    cursorColor: GoPharmaColors.PrimaryColor,
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.lock,
-                        color: GoPharmaColors.SecondaryColor,
+                        color: GoPharmaColors.PrimaryColor,
                       ),
                       hintText: S.of(context).password,
                       hintStyle: TextStyle(
-                        color: GoPharmaColors.HintTextColor,
+                        color: GoPharmaColors.hintTextColor,
                         fontSize: 18.0,
                       ),
                       border: InputBorder.none,
                       suffixIcon: GestureDetector(
                         child: Icon(
                           Icons.visibility,
-                          color: GoPharmaColors.SecondaryColor,
+                          color: GoPharmaColors.PrimaryColor,
                         ),
                         onTap: () {
                           //      TODO: toggle password visibility
@@ -124,7 +124,7 @@ class SignInStart extends StatelessWidget {
                     Text(
                       S.of(context).no_account_text,
                       style: TextStyle(
-                        color: GoPharmaColors.SecondaryColor,
+                        color: GoPharmaColors.PrimaryColor,
                       ),
                     ),
                     GestureDetector(
@@ -132,7 +132,7 @@ class SignInStart extends StatelessWidget {
                         S.of(context).sign_up_text,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: GoPharmaColors.SecondaryColor,
+                          color: GoPharmaColors.PrimaryColor,
                         ),
                       ),
                       onTap: () {
@@ -148,7 +148,7 @@ class SignInStart extends StatelessWidget {
                 RoundedButtonFilled(
                   title: S.of(context).sign_up_button,
                   size: MediaQuery.of(context).size,
-                  fillColor: GoPharmaColors.SecondaryColor,
+                  fillColor: GoPharmaColors.PrimaryColor,
                   textColor: GoPharmaColors.WhiteColor,
                   onTapped: () {
                     // if (_form.currentState!.validate()) {

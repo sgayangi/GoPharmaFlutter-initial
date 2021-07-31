@@ -14,7 +14,7 @@ class CustomerDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: GoPharmaColors.LighterSecondaryColor2,
+              color: GoPharmaColors.textBoxColor,
             ),
             child: Row(
               children: [
@@ -22,7 +22,7 @@ class CustomerDrawer extends StatelessWidget {
                   width: 60.0,
                   height: 60.0,
                   decoration: new BoxDecoration(
-                    color: GoPharmaColors.SecondaryColor,
+                    color: GoPharmaColors.PrimaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(

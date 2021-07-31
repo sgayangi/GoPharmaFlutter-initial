@@ -17,7 +17,7 @@ class TextFieldContainer extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       width: size.width * 0.8,
       decoration: BoxDecoration(
-        color: GoPharmaColors.LighterSecondaryColor,
+        color: GoPharmaColors.lighterSecondaryColor,
         borderRadius: BorderRadius.circular(29),
         border: Border.all(
           color: GoPharmaColors.WhiteColor,
@@ -52,15 +52,15 @@ class RoundedInputField extends StatelessWidget {
         ),
         obscureText: this.hideText,
         onChanged: onChanged,
-        cursorColor: GoPharmaColors.SecondaryColor,
+        cursorColor: GoPharmaColors.PrimaryColor,
         decoration: InputDecoration(
           icon: Icon(
             icon,
-            color: GoPharmaColors.SecondaryColor,
+            color: GoPharmaColors.PrimaryColor,
           ),
           hintText: hintText,
           hintStyle: TextStyle(
-            color: GoPharmaColors.HintTextColor,
+            color: GoPharmaColors.hintTextColor,
             fontSize: 18.0,
           ),
           border: InputBorder.none,
@@ -68,7 +68,7 @@ class RoundedInputField extends StatelessWidget {
               ? GestureDetector(
                   child: Icon(
                     suffixIcon,
-                    color: GoPharmaColors.SecondaryColor,
+                    color: GoPharmaColors.PrimaryColor,
                   ),
                   onTap: () {
                     //      TODO: toggle password visibility

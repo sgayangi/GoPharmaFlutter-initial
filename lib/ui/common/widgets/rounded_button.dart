@@ -5,7 +5,7 @@ import '../colors.dart';
 class RoundedButtonFilled extends StatelessWidget {
   const RoundedButtonFilled({
     required this.size,
-    this.fillColor = GoPharmaColors.SecondaryColor,
+    this.fillColor = GoPharmaColors.PrimaryColor,
     this.textColor = Colors.white,
     this.height = 65.0,
     this.widthMultiplier = 0.8,

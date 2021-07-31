@@ -83,7 +83,7 @@ class ProductFullView extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                primary: GoPharmaColors.SecondaryColor,
+                primary: GoPharmaColors.PrimaryColor,
                 padding: EdgeInsets.symmetric(
                   horizontal: 50,
                   vertical: 20,

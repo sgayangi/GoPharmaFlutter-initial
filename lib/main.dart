@@ -51,7 +51,7 @@ class GoPharmaApp extends StatelessWidget {
             ResponsiveBreakpoint.autoScale(2460, name: "4K"),
           ],
           background: Container(
-            color: GoPharmaColors.GreyColor,
+            color: GoPharmaColors.PrimaryColor,
           ),
         ),
         initialRoute: MainPage.id,
