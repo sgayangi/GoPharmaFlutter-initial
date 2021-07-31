@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,10 +9,10 @@ import 'package:go_pharma/repos/models/customer/products/product.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/customer/products/product_full_view.dart';
 
-class ProductCard extends StatelessWidget {
+class SquareProductCard extends StatelessWidget {
   final Product product;
 
-  const ProductCard({required this.product});
+  const SquareProductCard({required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +115,9 @@ class ProductCard extends StatelessWidget {
                               ],
                             );
                           } else {
-                            return Container();
+                            return Container(
+                              height: 40,
+                            );
                           }
                         },
                       )
@@ -246,9 +247,14 @@ class ProductCardImage extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(
-            color: GoPharmaColors.WhiteColor,
-          ),
+          boxShadow: [
+            BoxShadow(
+              color: GoPharmaColors.PrimaryColor.withOpacity(0.1),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
           image: DecorationImage(
             image: ExactAssetImage(
               imageURL,
