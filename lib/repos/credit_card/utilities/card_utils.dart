@@ -1,5 +1,5 @@
-import 'package:go_pharma/repos/models/customer/payments/card.dart';
-import 'package:go_pharma/repos/models/utilities/string_utils.dart';
+import 'package:go_pharma/repos/credit_card/card.dart';
+import 'package:go_pharma/repos/credit_card/utilities/string_utils.dart';
 
 import 'exceptions.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:go_pharma/repos/models/customer/products/product.dart';
+import 'package:go_pharma/repos/product/product_model.dart';
 import 'dart:async';
 
 import 'checkout_event.dart';

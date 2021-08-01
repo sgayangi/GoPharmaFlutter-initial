@@ -1,4 +1,4 @@
-import 'package:go_pharma/repos/models/utilities/strings.dart';
+import 'package:go_pharma/repos/credit_card/utilities/strings.dart';
 
 class PaystackException implements Exception {
   String? message;
