@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_pharma/repos/models/customer/products/product.dart';
+import 'package:go_pharma/repos/product/product_model.dart';
 
 @immutable
 abstract class CheckoutEvent {}

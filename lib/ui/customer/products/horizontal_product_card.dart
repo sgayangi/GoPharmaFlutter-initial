@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_pharma/bloc/checkout/checkout_bloc.dart';
 import 'package:go_pharma/bloc/checkout/checkout_event.dart';
 import 'package:go_pharma/bloc/checkout/checkout_state.dart';
-import 'package:go_pharma/repos/models/customer/products/product.dart';
+import 'package:go_pharma/repos/product/product_model.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/customer/products/product_full_view.dart';
 
