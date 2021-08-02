@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_pharma/bloc/checkout/checkout_bloc.dart';
-import 'package:go_pharma/bloc/checkout/checkout_state.dart';
+import 'package:go_pharma/bloc/customer/checkout/checkout_bloc.dart';
+import 'package:go_pharma/bloc/customer/checkout/checkout_state.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/common/widgets/back_button.dart';
 import 'package:go_pharma/ui/customer/products/shopping_cart_page_product_card.dart';

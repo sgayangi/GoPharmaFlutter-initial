@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_pharma/bloc/checkout/checkout_bloc.dart';
-import 'package:go_pharma/bloc/checkout/checkout_state.dart';
+import 'package:go_pharma/bloc/customer/checkout/checkout_bloc.dart';
+import 'package:go_pharma/bloc/customer/checkout/checkout_state.dart';
 import 'package:go_pharma/repos/product/product_model.dart';
 import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/common/widgets/back_button.dart';
-import 'package:go_pharma/ui/customer/headers/shopping_cart_app_bar.dart';
 import 'package:go_pharma/ui/customer/products/square_product_card.dart';
 
 import 'components/shopping_cart.dart';
