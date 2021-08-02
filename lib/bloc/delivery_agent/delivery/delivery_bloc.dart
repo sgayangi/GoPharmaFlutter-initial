@@ -2,16 +2,15 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
-part 'order_event.dart';
-part 'order_state.dart';
+import 'delivery_state.dart';
+import 'delivery_event.dart';
 
-class OrderBloc extends Bloc<OrderEvent, OrderState> {
-  OrderBloc(BuildContext context) : super(OrderState.initialState);
+class DeliveryBloc extends Bloc<DeliveryEvent, DeliveryState> {
+  DeliveryBloc(BuildContext context) : super(DeliveryState.initialState);
 
   @override
-  Stream<OrderState> mapEventToState(OrderEvent event) async* {
+  Stream<DeliveryState> mapEventToState(DeliveryEvent event) async* {
     switch (event.runtimeType) {
       case ErrorEvent:
         final error = (event as ErrorEvent).error;
