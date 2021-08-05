@@ -12,6 +12,7 @@ class DeliveryBloc extends Bloc<DeliveryEvent, DeliveryState> {
     DeliveryTransitionState.IN_TRANSIT,
     DeliveryTransitionState.DELIVERED,
     DeliveryTransitionState.PAID,
+    //  TODO: need to differentiate between cash on delivery and online
   ];
   DeliveryBloc(BuildContext context) : super(DeliveryState.initialState);
 
@@ -36,7 +37,8 @@ class DeliveryBloc extends Bloc<DeliveryEvent, DeliveryState> {
         }
         break;
       case PreviousDeliveryStatusEvent:
-        final currentState = (event as NextDeliveryStatusEvent).currentState;
+        final currentState =
+            (event as PreviousDeliveryStatusEvent).currentState;
         final previousStateIndex = deliveryStates.indexOf(currentState) - 1;
         if (previousStateIndex >= 0) {
           yield state.clone(

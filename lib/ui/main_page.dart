@@ -7,8 +7,8 @@ import 'package:go_pharma/ui/common/colors.dart';
 import 'package:go_pharma/ui/customer/home/customer_home_page.dart';
 import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
 import 'package:go_pharma/ui/delivery_agent/delivery/deliveries_page.dart';
-import 'package:go_pharma/ui/sign_up/sign_up.dart';
 import 'common/widgets/rounded_button.dart';
+import 'customer/sign_up/sign_up.dart';
 
 class MainPage extends StatelessWidget {
   static const id = "home_page";
