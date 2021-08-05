@@ -6,7 +6,7 @@ import 'package:go_pharma/ui/common/widgets/text_field.dart';
 import 'dart:core';
 import 'package:email_validator/email_validator.dart';
 import 'package:go_pharma/ui/customer/products/product_home_page.dart';
-import 'package:go_pharma/ui/sign_up/sign_up.dart';
+import 'package:go_pharma/ui/customer/sign_up/sign_up.dart';
 
 class SignInStart extends StatelessWidget {
   static const String id = "sign_in";
