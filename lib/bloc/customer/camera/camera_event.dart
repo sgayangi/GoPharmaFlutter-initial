@@ -9,7 +9,7 @@ class ErrorEvent extends CameraEvent {
   ErrorEvent(this.error);
 }
 
-class CameraInitializedEvent extends CameraEvent {}
+class TakePhotoEvent extends CameraEvent {}
 
 class CameraStoppedEvent extends CameraEvent {}
 

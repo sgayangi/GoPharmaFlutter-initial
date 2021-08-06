@@ -9,30 +9,17 @@ import 'package:go_pharma/camera/camera_utils.dart';
 import 'camera_state.dart';
 
 class CameraBloc extends Bloc<CameraEvent, CameraState> {
-  final CameraUtils cameraUtils;
-  final ResolutionPreset resolutionPreset;
-  final CameraLensDirection cameraLensDirection;
-
-  CameraController? _controller;
-  CameraBloc(
-    BuildContext context, {
-    required this.cameraUtils,
-    this.resolutionPreset = ResolutionPreset.high,
-    this.cameraLensDirection = CameraLensDirection.back,
-  }) : super(CameraState.initialState);
+  CameraBloc(BuildContext context) : super(CameraState.initialState);
 
   @override
   Stream<CameraState> mapEventToState(CameraEvent event) async* {
     switch (event.runtimeType) {
       case ErrorEvent:
         final error = (event as ErrorEvent).error;
-        yield state.clone(error: "");
-        yield state.clone(error: error);
+        yield state.clone(error: "", photosUrls: [], photos: []);
+        yield state.clone(error: error, photosUrls: [], photos: []);
         break;
-      case CameraInitializedEvent:
-        _controller = await cameraUtils.getCameraController(
-            resolutionPreset, cameraLensDirection);
-        await _controller!.initialize();
+      case TakePhotoEvent:
         break;
       case PhotoCapturedEvent:
         break;
