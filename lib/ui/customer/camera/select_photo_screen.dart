@@ -69,27 +69,20 @@ class SelectPhotoScreen extends StatelessWidget {
                       onPressed: () async {
                         PermissionStatus status =
                             await Permission.storage.request();
-                        var cameraStatus = await Permission.camera.status;
-                        print(cameraStatus);
+                        var storageStatus = await Permission.storage.status;
                         XFile? image;
-                        if (cameraStatus.isGranted) {
+                        if (storageStatus.isGranted) {
                           image = await imagePicker.pickImage(
                             source: ImageSource.gallery,
                           );
                           if (image != null) {
-                            // String fileExtension = path.extension(image.path);
-                            // GalleryItem galleryItemImage = GalleryItem(
-                            //   id: Uuid().v1(),
-                            //   resource: image.path,
-                            //   isSvg: fileExtension.toLowerCase() == ".svg",
-                            // );
                             bloc.add(
                               UploadImageFromGallery(
                                 localPhotoPaths: [image.path],
                               ),
                             );
                           }
-                        } else if (cameraStatus == PermissionStatus.denied) {
+                        } else if (storageStatus == PermissionStatus.denied) {
                           //  TODO: do something
                         }
                       },
@@ -102,15 +95,21 @@ class SelectPhotoScreen extends StatelessWidget {
                 child: OutlinedButton(
                   child: Text('Take Photo'),
                   onPressed: () async {
-                    PermissionStatus status =
-                        await Permission.storage.request();
-                    var storageStatus = await Permission.storage.status;
+                    PermissionStatus status = await Permission.camera.request();
+                    var cameraStatus = await Permission.camera.status;
 
-                    if (storageStatus.isGranted) {
+                    if (cameraStatus.isGranted) {
                       XFile? image = await imagePicker.pickImage(
-                        source: ImageSource.gallery,
+                        source: ImageSource.camera,
                       );
-                    } else if (storageStatus.isDenied) {
+                      if (image != null) {
+                        bloc.add(
+                          UploadImageFromGallery(
+                            localPhotoPaths: [image.path],
+                          ),
+                        );
+                      }
+                    } else if (cameraStatus.isDenied) {
                       //  TODO: do something
                     }
                   },

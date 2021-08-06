@@ -22,7 +22,7 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
             (event as UploadImageFromGallery).localPhotoPaths;
         final List<String> newLocalPhotoPaths = state.localPhotoPaths;
         for (String i in localPhotoPaths) {
-          newLocalPhotoPaths.add(i);
+          newLocalPhotoPaths.insert(0, i);
         }
         yield state.clone(
           localPhotoPaths: newLocalPhotoPaths,
