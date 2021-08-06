@@ -8,6 +8,7 @@ import 'package:go_pharma/ui/customer/home/customer_home_page.dart';
 import 'package:go_pharma/ui/customer/sign_in/other_files/sign_in_start.dart';
 import 'package:go_pharma/ui/delivery_agent/delivery/deliveries_page.dart';
 import 'common/widgets/rounded_button.dart';
+import 'customer/camera/select_photo_screen.dart';
 import 'customer/sign_up/sign_up.dart';
 
 class MainPage extends StatelessWidget {
@@ -85,6 +86,16 @@ class MainPage extends StatelessWidget {
                   onTapped: () => Navigator.pushNamed(
                     context,
                     DeliveriesPage.id,
+                  ),
+                ),
+                RoundedButtonFilled(
+                  title: "CAMERA SCREEN",
+                  size: size,
+                  fillColor: GoPharmaColors.GreyColor.withOpacity(0.5),
+                  textColor: GoPharmaColors.BlackColor,
+                  onTapped: () => Navigator.pushNamed(
+                    context,
+                    SelectPhotoScreen.id,
                   ),
                 ),
               ],
