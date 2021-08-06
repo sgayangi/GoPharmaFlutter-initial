@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:go_pharma/ui/customer/camera/select_photo_screen.dart';
 import 'package:go_pharma/ui/customer/home/customer_home_page.dart';
 import 'package:go_pharma/ui/customer/products/product_home_page.dart';
 import 'package:go_pharma/ui/customer/products/shopping_cart_page.dart';
@@ -15,4 +16,5 @@ Map<String, Widget Function(BuildContext context)> routes = {
   ProductHomePage.id: (context) => ProductHomePage(),
   ShoppingCartPage.id: (context) => ShoppingCartPage(),
   DeliveriesPage.id: (context) => DeliveriesPage(),
+  SelectPhotoScreen.id: (context) => SelectPhotoScreen(),
 };
