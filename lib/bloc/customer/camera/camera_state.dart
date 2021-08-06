@@ -1,34 +1,46 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 @immutable
 class CameraState {
   final String error;
-  final List<File> photos;
-  final List<String> photosUrls;
+  final List<String> localPhotoPaths;
+
+  // final List<String> photosUrls;
+  // final List<File> photos;
+  // List<PhotoStatus> _photosStatus;
+  // List<PhotoSource> _photosSources;
+  // List<GalleryItem> galleryItems;
 
   CameraState({
     required this.error,
-    required this.photos,
-    required this.photosUrls,
+    required this.localPhotoPaths,
+    // required this.photos,
+    // required this.photosUrls,
+    // required this.galleryItems,
   });
 
   static CameraState get initialState => CameraState(
         error: '',
-        photos: [],
-        photosUrls: [],
+        localPhotoPaths: [],
+        // photos: [],
+        // photosUrls: [],
+        // galleryItems: [],
       );
 
   CameraState clone({
     String error = '',
-    required List<File> photos,
-    required List<String> photosUrls,
+    required List<String> localPhotoPaths,
+
+    // required List<File> photos,
+    // required List<String> photosUrls,
+    // required List<GalleryItem> galleryItems,
   }) {
     return CameraState(
       error: error,
-      photosUrls: photosUrls,
-      photos: photos,
+      localPhotoPaths: localPhotoPaths,
+      // photosUrls: photosUrls,
+      // photos: photos,
+      // galleryItems: galleryItems,
     );
   }
 }

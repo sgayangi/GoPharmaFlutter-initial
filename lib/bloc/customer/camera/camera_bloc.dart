@@ -1,10 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_pharma/bloc/customer/camera/camera_event.dart';
-import 'package:go_pharma/camera/camera_utils.dart';
 
 import 'camera_state.dart';
 
@@ -16,10 +14,19 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
     switch (event.runtimeType) {
       case ErrorEvent:
         final error = (event as ErrorEvent).error;
-        yield state.clone(error: "", photosUrls: [], photos: []);
-        yield state.clone(error: error, photosUrls: [], photos: []);
+        yield state.clone(error: "", localPhotoPaths: []);
+        yield state.clone(error: error, localPhotoPaths: []);
         break;
-      case TakePhotoEvent:
+      case UploadImageFromGallery:
+        final List<String> localPhotoPaths =
+            (event as UploadImageFromGallery).localPhotoPaths;
+        final List<String> newLocalPhotoPaths = state.localPhotoPaths;
+        for (String i in localPhotoPaths) {
+          newLocalPhotoPaths.add(i);
+        }
+        yield state.clone(
+          localPhotoPaths: newLocalPhotoPaths,
+        );
         break;
       case PhotoCapturedEvent:
         break;
