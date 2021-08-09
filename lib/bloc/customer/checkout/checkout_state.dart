@@ -22,7 +22,7 @@ class CheckoutState {
   CheckoutState clone({
     String error = '',
     required List<Product> productList,
-    required productListTotal,
+    productListTotal = 0.0,
   }) {
     return CheckoutState(
       error: error,

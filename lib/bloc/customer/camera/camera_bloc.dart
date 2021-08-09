@@ -1,38 +1,32 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_pharma/bloc/customer/camera/camera_event.dart';
-import 'package:go_pharma/camera/camera_utils.dart';
 
 import 'camera_state.dart';
 
 class CameraBloc extends Bloc<CameraEvent, CameraState> {
-  final CameraUtils cameraUtils;
-  final ResolutionPreset resolutionPreset;
-  final CameraLensDirection cameraLensDirection;
-
-  CameraController? _controller;
-  CameraBloc(
-    BuildContext context, {
-    required this.cameraUtils,
-    this.resolutionPreset = ResolutionPreset.high,
-    this.cameraLensDirection = CameraLensDirection.back,
-  }) : super(CameraState.initialState);
+  CameraBloc(BuildContext context) : super(CameraState.initialState);
 
   @override
   Stream<CameraState> mapEventToState(CameraEvent event) async* {
     switch (event.runtimeType) {
       case ErrorEvent:
         final error = (event as ErrorEvent).error;
-        yield state.clone(error: "");
-        yield state.clone(error: error);
+        yield state.clone(error: "", localPhotoPaths: []);
+        yield state.clone(error: error, localPhotoPaths: []);
         break;
-      case CameraInitializedEvent:
-        _controller = await cameraUtils.getCameraController(
-            resolutionPreset, cameraLensDirection);
-        await _controller!.initialize();
+      case UploadImageFromGallery:
+        final List<String> localPhotoPaths =
+            (event as UploadImageFromGallery).localPhotoPaths;
+        final List<String> newLocalPhotoPaths = state.localPhotoPaths;
+        for (String i in localPhotoPaths) {
+          newLocalPhotoPaths.insert(0, i);
+        }
+        yield state.clone(
+          localPhotoPaths: newLocalPhotoPaths,
+        );
         break;
       case PhotoCapturedEvent:
         break;
